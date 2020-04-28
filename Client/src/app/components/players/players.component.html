@@ -1,0 +1,13 @@
+<ul *ngIf="!preloader && list != null">
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+        </tr>
+        <tr *ngFor="let hero of list; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{hero.name}}</td>
+            <td><input type="button" value="startGame" (click)="startGame(hero.id);"/></td>
+        </tr>
+    </table>
+  </ul>

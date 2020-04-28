@@ -1,0 +1,11 @@
+<form>
+    <h2>Welcome to login page </h2>
+    <br>
+    <label >Email address</label>
+    <input [(ngModel)]="username" name="usernameInput" type="text" placeholder="Username">
+    <label >Password</label>        
+    <input [(ngModel)]="password" name="passwordInput" type="password" placeholder="Password">
+    <input type="button" value="Submit" (click)="login()">
+    <input type="button" value="Register" (click)="signup()">
+    <span class="error">{{errorMessage}}</span>
+</form>

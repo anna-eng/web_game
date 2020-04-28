@@ -1,0 +1,67 @@
+<ul *ngIf="!preloader && list != null">
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Game</th>
+        </tr>
+        <tr *ngFor="let hero of list; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{hero.players[0].name}} vs {{hero.players[1].name}}</td>
+            <td><input type="button" value="startGame" (click)="startGame(hero);"/></td>
+        </tr>
+    </table>
+  </ul>
+
+  <!-- <ul *ngIf="!preloader && currentGame != null">
+    <table class="table">
+        <tr *ngFor="let row of currentGame.gameGrid;let i = index;">
+            <td *ngFor="let column of currentGame.gameGrid[i];let j = index;">
+                <td>{{currentGame.gameGrid[i][j]}}</td>
+            </td>
+        </tr>
+    </table>
+  </ul> -->
+  <!-- <ul *ngIf="!preloader && currentGame != null">
+    <div class="row" *ngFor="let row of currentGame.gameGrid">
+        <table class="table">
+            <td *ngFor="let col of row">
+                <td>{{col}}</td>
+            </td>
+        </table>
+
+         <div class="col" *ngFor="let col of row">
+         <div class="card">{{col}}</div>
+        </div> -->
+  <!-- <ul *ngIf="!preloader && currentGame != null">
+      <GridLayout [auto-grid-columns]="autoCreateColumns" 
+                  [auto-grid-rows]="autoCreateRows">
+          <template ngFor #row [ngForOf]="rows" #y="index">
+            <template ngFor #col [ngForOf]="cols" #x="index"> 
+              <Label [col]="col" [row]="row" [text]="x + ',' + y"></Label>
+            </template>
+          </template>
+    </GridLayout>
+  </ul> -->
+  <!-- <div >
+    <div >
+        <div ngFor="let row in  currentGame.gameGrid">
+            <div ngFor="let column in row" >
+                <div>{{column}}</div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<ul *ngIf="!preloader && currentGame != null">
+    <table>
+        <tr *ngFor="let i of currentGame.gameGrid;">
+            <span *ngFor="let j of i">
+              <td> <input type="button" value="{{j}}" (click)="commitMove(i, j)"> </td>
+            </span>
+        </tr>
+    </table>
+        <!-- <div *ngFor="let i of currentGame.gameGrid">
+    <span *ngFor="let j of i">
+        {{j}}
+    </span>
+</div> -->
+</ul>
